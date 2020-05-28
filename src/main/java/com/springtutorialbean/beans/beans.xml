@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	default-destroy-method="destroy" default-init-method="init"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<!-- 
+	<bean id="person" class="com.springtutorialbean.Person"
+		scope="singleton" init-method="onCreate" destroy-method="onDestroy"
+		factory-method="getInstance">
+		<constructor-arg value="777" name="id">
+		</constructor-arg>
+		<constructor-arg value="Mary" name="name"></constructor-arg>
+		<property name="taxId" value="${jdbc.user}">
+		</property>
+		<property name="address" ref="address"></property>
+		<property name="speech" value="${jdbc.password}">
+		</property>
+		
+	</bean>
+
+	<bean id="person2" class="com.springtutorialbean.Person"
+		scope="singleton" init-method="onCreate" destroy-method="onDestroy"
+		factory-method="createPerson" factory-bean="personfactory">
+		<constructor-arg value="654" name="id">
+		</constructor-arg>
+		<constructor-arg value="Mike" name="name"></constructor-arg>
+		<property name="address" ref="address"></property>
+	</bean>
+	<bean id="address" class="com.springtutorialbean.Address">
+		<constructor-arg name="street" value="1 Church Lane"></constructor-arg>
+		<constructor-arg name="postcode" value="9876"></constructor-arg>
+	</bean>
+
+	<bean id="address2" class="com.springtutorialbean.Address"
+		p:street="23 Vinyard Lane" p:postcode="6789">
+		
+	</bean>
+	<bean id="personfactory"
+		class="com.springtutorialbean.PersonFactory">
+	</bean>
+
+	<bean id="randomText" class="com.springtutorialbean.RandomText"></bean>
+ -->
+	<context:component-scan base-package="com.springtutorialbean"></context:component-scan>
+	<context:property-placeholder
+		location="com/springtutorialprops/jdbc.properties" />
+	
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+
+	<property name="driverClassName" value="${jdbc.driver}"></property>
+	<property name="url" value="${jdbc.url}"></property>
+	<property name="password" value="${jdbc.password}"></property>	
+	<property name="username" value="{$jdbc.username}"></property>
+	
+	</bean>
+</beans>
