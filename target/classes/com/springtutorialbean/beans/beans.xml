@@ -8,21 +8,21 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-<!-- 
+
 	<bean id="person" class="com.springtutorialbean.Person"
 		scope="singleton" init-method="onCreate" destroy-method="onDestroy"
 		factory-method="getInstance">
 		<constructor-arg value="777" name="id">
 		</constructor-arg>
 		<constructor-arg value="Mary" name="name"></constructor-arg>
-		<property name="taxId" value="${jdbc.user}">
+		<property name="taxId" value="${jdbc.driver}">
 		</property>
-		<property name="address" ref="address"></property>
-		<property name="speech" value="${jdbc.password}">
-		</property>
-		
-	</bean>
 
+		<property name="speech" value="${jdbc.url}">
+		</property>
+
+	</bean>
+	<!-- 
 	<bean id="person2" class="com.springtutorialbean.Person"
 		scope="singleton" init-method="onCreate" destroy-method="onDestroy"
 		factory-method="createPerson" factory-bean="personfactory">
@@ -56,8 +56,8 @@
 
 	<property name="driverClassName" value="${jdbc.driver}"></property>
 	<property name="url" value="${jdbc.url}"></property>
+	<property name="username" value="${jdbc.username}"></property>
 	<property name="password" value="${jdbc.password}"></property>	
-	<property name="username" value="{$jdbc.username}"></property>
 	
 	</bean>
 </beans>

@@ -10,7 +10,6 @@ public class Person {
 	private String speech = "default hello";
 	private String date = "2020.05.21";
 	private String taxId;
-	private Address address;
 	
 	public static Person getInstance(int id, String name) {
 		System.out.println("Creating Person using factory method.");
@@ -50,14 +49,11 @@ public class Person {
 	public void setDate(@Value("#{new java.util.Date().toString()}") String date) {
 		this.date = date;
 	}
-	
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", speech=" + speech + ", date=" + date + ", taxId=" + taxId + ", address=" + address + "]";
+		return "Person [id=" + id + ", name=" + name + ", speech=" + speech + ", date=" + date + ", taxId=" + taxId + "]";
 	}
 
 	
